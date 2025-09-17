@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TIEGELE – Tiere geben Lebensfreude | Freiwillige gesucht</title>
+  <meta name="description" content="Bring Freude in den Alltag: Mit deinem Tier oder als Kuchenbäcker:in zum TIEGELE‑Besuchstag in der ISD Herberge Innsbruck. Jetzt unverbindlich melden!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Flyer‑Look: klare Grotesk, fette Überschriften, warme Creme/Rot‑Palette -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Farben am Flyer orientiert */
+      --cream:#efe4cf; /* Hintergrund/Badge */
+      --paper:#f7f0e3; /* helle Flächen */
+      --ink:#1b1b1b;  /* Text */
+      --brand:#c8322b; /* Innsbruck/TIEGELE Rot */
+      --brand-dark:#a22620;
+      --green:#136d37; /* Akzent wie vintage‑Grün */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; font-family:Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", sans-serif; color:var(--ink); background:var(--cream)}
+    img{max-width:100%; height:auto;}
+    a{color:var(--brand)}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+    header{position:sticky; top:0; background:rgba(239,228,207,.9); backdrop-filter:saturate(140%) blur(6px); border-bottom:2px solid var(--brand); z-index:10}
+    header .inner{display:flex; align-items:center; justify-content:space-between; gap:20px; padding:12px 0}
+    .brand{display:flex; align-items:center; gap:14px}
+    .brand img{width:44px; height:44px}
+    .brand .title{font-weight:800; letter-spacing:.02em}
+    nav a{font-weight:600; text-decoration:none; margin-left:16px}
+    nav a:hover{opacity:.85}
+
+    .hero{padding:48px 0 18px;}
+    .hero .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center}
+    h1{font-size: clamp(28px, 5vw, 54px); margin:0 0 10px; line-height:1.05; letter-spacing:.01em}
+    .eyebrow{display:inline-block; background:var(--brand); color:#fff; padding:6px 10px; border-radius:8px; font-weight:800; font-size:14px; letter-spacing:.04em}
+    .lead{font-size: clamp(16px, 2.2vw, 19px)}
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .badge{background:var(--paper); border:2px solid var(--ink); border-radius:999px; padding:8px 12px; font-weight:700}
+
+    .cta{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
+    .btn{appearance:none; border:2px solid var(--ink); background:var(--brand); color:#fff; font-weight:800; padding:14px 18px; border-radius:12px; cursor:pointer; text-decoration:none; display:inline-block}
+    .btn:hover{background:var(--brand-dark)}
+    .btn-ghost{background:var(--paper); color:var(--ink)}
+
+    .section{padding:32px 0}
+    h2{font-size: clamp(22px, 3.2vw, 34px); margin:0 0 10px}
+    .zig{background:var(--paper); border-top:2px dashed var(--ink); border-bottom:2px dashed var(--ink)}
+
+    .cards{display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); margin-top:10px}
+    .card{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:16px}
+    .card h3{margin:0 0 8px}
+
+    .list{margin:8px 0 0 18px}
+
+    .grid2{display:grid; gap:22px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+
+    .stamp{display:inline-flex; align-items:center; gap:10px; background:#fff; border:2px solid var(--ink); padding:8px 12px; border-radius:12px}
+    .stamp img{height:28px}
+
+    form{display:grid; gap:10px; margin-top:10px}
+    label{font-weight:700}
+    input,select,textarea{font:inherit; padding:12px 12px; border-radius:10px; border:2px solid var(--ink); background:#fff}
+    textarea{min-height:120px; resize:vertical}
+    .submit{display:flex; gap:10px; align-items:center}
+
+    .footer{padding:28px 0; border-top:2px solid var(--ink); font-size:14px}
+
+    /* kleine Helfer */
+    .center{text-align:center}
+    .muted{opacity:.8}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; border:2px solid var(--ink); background:#fff; font-weight:700}
+
+    @media (max-width: 860px){
+      .hero .wrap{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container inner">
+      <div class="brand">
+        <!-- Ersetze die Pfade unten durch deine finalen Dateinamen im /assets‑Ordner -->
+        <img src="assets/logo-vertikal.png" alt="TIEGELE Logo"/>
+        <div class="title">TIEGELE – Tiere geben Lebensfreude</div>
+      </div>
+      <nav>
+        <a href="#about">Über das Event</a>
+        <a href="#mitmachen">Mitmachen</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container wrap">
+        <div>
+          <span class="eyebrow">Freiwillige gesucht – Innsbruck</span>
+          <h1>Bring Freude in die Pflegestation – mit deinem Tier oder als Kuchenbäcker:in</h1>
+          <p class="lead">Am <strong>Samstag, 18. April 2026</strong>, von <strong>14:00–16:00 Uhr</strong> besuchen tierische Gäste die <strong>Pflegestation der ISD Herberge Innsbruck</strong> (Hunoldstraße 22). Wir suchen <strong>Tierhalter:innen</strong> – gern auch mit außergewöhnlichen Tieren – und <strong>Kuchenbäcker:innen</strong> für das Dankes‑Kaffeetrinken.</p>
+          <div class="badges">
+            <div class="badge">Sicher & begleitet</div>
+            <div class="badge">Kurz & wirkungsvoll</div>
+            <div class="badge">Auch „exotische“ Tiere willkommen</div>
+          </div>
+          <div class="cta">
+            <a class="btn" href="#kontakt">Jetzt unverbindlich melden</a>
+            <a class="btn btn-ghost" href="#about">Mehr erfahren</a>
+          </div>
+          <div style="margin-top:14px" class="muted">
+            <span class="stamp"><img src="assets/logo-innsbruck.jpg" alt="Innsbruck Logo"/> In Kooperation mit ISD Herberge</span>
+          </div>
+        </div>
+        <div class="center">
+          <!-- Hero‑Foto -->
+          <img src="assets/alpaca-senior.jpg" alt="Tierischer Besuch – Bewohnerin mit Alpaka" loading="eager" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section zig">
+      <div class="container grid2">
+        <div>
+          <h2>Worum geht’s?</h2>
+          <p>„TIEGELE“ ist ein einmaliger Besuchstag: Freiwillige stellen ihre Tiere vor – im Speisesaal oder bei kurzen Zimmerbesuchen. Ziel ist ein <strong>freundlicher, ruhiger Begegnungsraum</strong>, der Abwechslung bringt und Gespräche ermöglicht.</p>
+          <ul class="list">
+            <li><strong>Wann:</strong> 18. April 2026, 14:00–16:00 Uhr (Kaffee & Kuchen für Helfer:innen bis 17:00 Uhr)</li>
+            <li><strong>Wo:</strong> Pflegestation ISD Herberge, Hunoldstraße 22, 6020 Innsbruck</li>
+            <li><strong>Gesucht:</strong> Tierhalter:innen (auch „exotisch“), Kuchenbäcker:innen, ehrenamtlicher Fotograf</li>
+          </ul>
+        </div>
+        <div>
+          <h2>So läuft’s ab</h2>
+          <div class="cards">
+            <article class="card"><h3>Check‑in</h3><p>Ankommen zwischen 13:30–14:00 Uhr, kurzer Empfang im Mehrzweckraum, Ausgabe Event‑T‑Shirts.</p></article>
+            <article class="card"><h3>Begegnungen</h3><p>Tiere im Speisesaal präsentieren oder kurze Zimmerbesuche <em>begleitet durch das Team</em>.</p></article>
+            <article class="card"><h3>Wertschätzung</h3><p>Im Anschluss Kaffee & Kuchen (16:00–17:00 Uhr) als Dankeschön.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mitmachen" class="section">
+      <div class="container">
+        <h2>Wer kann mitmachen?</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Tierhalter:innen</h3>
+            <p>Dein Tier ist menschenfreundlich und ruhig? Perfekt. Wir achten auf <strong>Schonung und Pausen</strong>. Keine Fütterung durch Bewohner; Hygiene vor und nach dem Kontakt.</p>
+          </article>
+          <article class="card">
+            <h3>Kuchenbäcker:innen</h3>
+            <p>Backe etwas für unser Dankes‑Kaffeetrinken (nach dem Besuchstag). Abgabe am Vormittag beim Portier – wir koordinieren alles.</p>
+          </article>
+          <article class="card">
+            <h3>Foto‑Support</h3>
+            <p>Du fotografierst sensibel und mit Blick fürs Einverständnis? Hilf uns, die schönsten Momente festzuhalten.</p>
+          </article>
+        </div>
+        <p class="muted" style="margin-top:10px">Alle Begegnungen sind begleitet. Sicherheit von Menschen <em>und</em> Tieren hat Vorrang.</p>
+      </div>
+    </section>
+
+    <section class="section zig">
+      <div class="container">
+        <h2>Warum mitmachen?</h2>
+        <div class="cards">
+          <article class="card"><h3>Direkte Wirkung</h3><p>Du schenkst <strong>Abwechslung und Freude</strong> – oft noch Tage Gesprächsthema.</p></article>
+          <article class="card"><h3>Einfacher Einsatz</h3><p>Kurzzeit‑Engagement, klar strukturiert, begleitet – ideal zum Reinschnuppern.</p></article>
+          <article class="card"><h3>Gemeinschaft</h3><p>Netzwerk aus Tierfreund:innen & Ehrenamt – mit Option auf Folgebesuche.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <h2>Häufige Fragen (kurz)</h2>
+        <div class="cards">
+          <article class="card"><h3>Welche Tiere?</h3><p>Von Hund/Katze bis zu ruhigen, ungefährlichen „exotischen“ Tieren (z. B. Reptilien, Kleintiere). Wir besprechen vorab, was passt.</p></article>
+          <article class="card"><h3>Versicherung?</h3><p>Tierhalter:innen bestätigen eine <strong>Haftpflichtversicherung</strong>. Vor Ort gelten klare Regeln und ein Notfallablauf.</p></article>
+          <article class="card"><h3>Fotos & Datenschutz</h3><p>Nur mit Einverständnis. Gesichter von Bewohner:innen werden ohne Zustimmung nicht veröffentlicht.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="section zig">
+      <div class="container">
+        <h2>Unverbindlich melden</h2>
+        <p>Schreib uns kurz, wer du bist und wie du mitmachen möchtest. Wir melden uns mit den nächsten Schritten.</p>
+        <!-- Für GitHub Pages: mailto als niedrigschwellige Lösung ohne Server -->
+        <form id="contact" action="mailto:tiegeleprojekt@gmail.com" method="post" enctype="text/plain" onsubmit="return validateForm()">
+          <div class="grid2">
+            <div>
+              <label for="name">Name*</label>
+              <input id="name" name="Name" required />
+            </div>
+            <div>
+              <label for="email">E‑Mail*</label>
+              <input id="email" name="Email" type="email" required />
+            </div>
+            <div>
+              <label for="role">Ich möchte mitmachen als*</label>
+              <select id="role" name="Rolle" required>
+                <option value="">Bitte wählen …</option>
+                <option>Tierhalter:in</option>
+                <option>Kuchenbäcker:in</option>
+                <option>Fotograf:in (ehrenamtlich)</option>
+              </select>
+            </div>
+            <div>
+              <label for="animal">Tier (falls zutreffend)</label>
+              <input id="animal" name="Tier" placeholder="z. B. ruhige Kornnatter, Zwergkaninchen …" />
+            </div>
+          </div>
+          <div>
+            <label for="msg">Nachricht</label>
+            <textarea id="msg" name="Nachricht" placeholder="Kurze Info zu dir / Fragen"></textarea>
+          </div>
+          <div class="submit">
+            <button class="btn" type="submit">E‑Mail öffnen & senden</button>
+            <a class="btn btn-ghost" href="mailto:tiegeleprojekt@gmail.com?subject=TIEGELE%20Mitmachen">Oder direkt mailen</a>
+          </div>
+          <p class="muted" style="margin-top:6px">Hinweis: Das Formular öffnet dein E‑Mail‑Programm (GitHub Pages hat keinen Server). Wenn das nicht klappt, nutze bitte den Direkt‑Mail‑Button.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container center">
+        <p class="pill">Event: 18. April 2026 · 14–16 Uhr · Pflegestation ISD Herberge · Hunoldstraße 22</p>
+        <p class="muted" style="margin-top:8px">Mehr Infos folgen nach deiner Rückmeldung.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap">
+        <img src="assets/logo-horizontal.png" alt="TIEGELE Logo" style="height:34px"/>
+        <span class="muted">© 2026 TIEGELE · Ehrenamtliches Projekt in Innsbruck</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function validateForm(){
+      const email=document.getElementById('email');
+      const name=document.getElementById('name');
+      if(!name.value.trim()){alert('Bitte Namen angeben.'); return false}
+      if(!email.value.includes('@')){alert('Bitte gültige E‑Mail eingeben.'); return false}
+      return true;
+    }
+  </script>
+</body>
+</html>
