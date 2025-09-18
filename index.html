@@ -36,10 +36,13 @@
   .btn.primary{background:var(--red);color:#fff}
   .btn.primary:hover{filter:brightness(.95)}
   .btn.ghost{background:#fff;border-color:#ddd;color:var(--dark)}
-  .logos{display:flex;gap:14px;align-items:center;margin-top:10px}
-  .logos img{height:32px;width:auto} /* kleiner & konsistent */
 
-  /* Bild rechts im Hero – immer schön zugeschnitten */
+  /* Logos in Hero – größer */
+  .logos{display:flex;gap:14px;align-items:center;margin-top:10px}
+  .logos img{height:56px;width:auto}
+  @media (max-width:900px){ .logos img{height:44px} }
+
+  /* Bild rechts im Hero – sauber skaliert */
   .hero-figure{border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
   .hero-figure img{display:block;width:100%;height:100%;max-height:520px;object-fit:cover}
 
@@ -78,12 +81,12 @@
     <a class="brand" href="#top" aria-label="TIEGELE Start">
       <img src="assets/logo-horizontal.png" alt="TIEGELE Logo" /><span>TIEGELE</span>
     </a>
-    <div class="menu" role="navigation" aria-label="Hauptmenü">
+    <div class="menu">
       <a href="#warum">Warum mitmachen?</a>
       <a href="#ablauf">So läuft’s</a>
       <a href="#anmeldung">Anmeldung</a>
-      <a href="#faq">FAQ</a>
       <a href="#kontakt">Kontakt</a>
+      <a href="#impressum">Impressum</a>
     </div>
   </div>
 </nav>
@@ -102,7 +105,7 @@
         <a class="btn primary" href="#anmeldung">Jetzt anmelden</a>
         <a class="btn ghost" href="#warum">Mehr erfahren</a>
       </div>
-      <div class="logos" aria-label="Logos">
+      <div class="logos">
         <img src="assets/logo-innsbruck.jpg" alt="Innsbruck Logo" />
       </div>
     </div>
@@ -143,7 +146,7 @@
     <div class="card">
       <h2>Wann &amp; Wo</h2>
       <p><strong>Freiwilligentag:</strong> Samstag, <strong>18.04.2026</strong></p>
-      <p><strong>Uhrzeit:</strong> <strong>10:00 – 12:00</strong> (fix)</p>
+      <p><strong>Uhrzeit:</strong> <strong>14:00 – 16:00</strong> (fix)</p>
       <p><strong>Ort:</strong> Pflegestation ISD Herberge,<br/>Hunoldstraße 22, 6020 Innsbruck</p>
     </div>
   </div>
@@ -178,15 +181,7 @@
         <p class="sub" style="color:#666">Die Schaltfläche öffnet dein E-Mail-Programm mit einer vorgefüllten Nachricht an <strong>tiegeleprojekt@gmail.com</strong>.</p>
       </form>
     </div>
-    <!-- rechte Spalte leer gelassen / optional für spätere Infos -->
-    <div class="card" style="display:flex;align-items:center;justify-content:center">
-      <img src="assets/logo-horizontal.png" alt="TIEGELE" style="max-width:380px;width:100%;height:auto" />
-    </div>
-  </div>
-</section>
 
-<section id="faq" style="background:var(--muted);">
-  <div class="wrap">
     <div class="card">
       <h2>FAQ</h2>
       <p><strong>Muss mein Tier „ausgebildet“ sein?</strong><br/>Nein. Es reicht, wenn es Menschenkontakt kennt und stressfrei bleibt.</p>
@@ -196,7 +191,7 @@
   </div>
 </section>
 
-<section id="kontakt">
+<section id="kontakt" style="background:var(--muted);">
   <div class="wrap grid-2">
     <div class="card">
       <h2>Kontakt</h2>
@@ -204,7 +199,28 @@
       <p><strong>Ort:</strong> Pflegestation ISD Herberge, Hunoldstraße 22, 6020 Innsbruck</p>
     </div>
     <div class="card" style="display:flex;align-items:center;justify-content:center">
-      <img src="assets/logo-innsbruck.jpg" alt="Innsbruck" style="max-width:260px;width:100%;height:auto" />
+      <img src="assets/logo-quad.png" alt="TIEGELE" style="max-width:260px;width:100%;height:auto" />
+    </div>
+  </div>
+</section>
+
+<section id="impressum">
+  <div class="wrap">
+    <div class="card">
+      <h2>Impressum & Datenschutz</h2>
+      <p><strong>Betreiber:</strong><br/>
+      Innsbrucker Soziale Dienste GmbH<br/>
+      Herberge<br/>
+      Hunoldstraße 22, 6020 Innsbruck, Österreich</p>
+
+      <p><strong>Kontakt:</strong><br/>
+      E-Mail: <a href="mailto:tiegeleprojekt@gmail.com">tiegeleprojekt@gmail.com</a></p>
+
+      <p><strong>Haftungshinweis:</strong><br/>
+      Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+
+      <p><strong>Datenschutz:</strong><br/>
+      Deine Daten werden ausschließlich zur Organisation des Freiwilligentags verarbeitet und nicht an Dritte weitergegeben. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung). Verantwortlich ist der oben genannte Betreiber.</p>
     </div>
   </div>
 </section>
@@ -217,10 +233,7 @@
 </footer>
 
 <script>
-  // Jahr im Footer
   document.getElementById('y').textContent = new Date().getFullYear();
-
-  // Mailto-Form (ohne Wunschuhrzeit)
   const MAILTO_ADDRESS = "tiegeleprojekt@gmail.com";
   document.getElementById('applyForm').addEventListener('submit', function(e){
     e.preventDefault();
@@ -236,7 +249,7 @@
       "Nachricht:",
       (f.get('msg')||''),
       "",
-      "Termin ist fix: 18.04.2026, 10:00–12:00."
+      "Termin ist fix: 18.04.2026, 14:00 – 16:00."
     ].join("\n");
     const subject = encodeURIComponent("Anmeldung TIEGELE – Freiwilligentag");
     const body = encodeURIComponent(lines);
