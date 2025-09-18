@@ -4,7 +4,6 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TIEGELE – Tiere geben Lebensfreude | Freiwilligentag</title>
-<meta name="description" content="Werde Teil von TIEGELE: Mit besonderen Haustieren Freude schenken – Freiwilligentag in der ISD Herberge Innsbruck." />
 <link rel="icon" href="assets/logo-horizontal.png" />
 <style>
   :root{
@@ -12,65 +11,74 @@
     --shadow:0 10px 25px rgba(0,0,0,.08); --radius:18px; --max:1100px;
   }
   *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;color:var(--dark);background:var(--bg);line-height:1.5}
   html{scroll-behavior:smooth}
-  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;color:var(--dark);background:var(--bg);line-height:1.5}
 
   /* NAV */
-  .nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee}
-  .nav-inner{max-width:var(--max);margin:auto;display:flex;align-items:center;gap:16px;padding:10px 16px}
-  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-  .brand img{height:36px;width:auto}
-  .brand span{font-weight:800;letter-spacing:.3px;color:var(--red)}
-  .menu{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
-  .menu a{color:var(--dark);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:10px}
+  .nav{position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid #eee}
+  .nav-inner{max-width:var(--max); margin:auto; display:flex; align-items:center; gap:12px; padding:10px 16px; height:56px}
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+  .brand img{height:32px}
+  .brand span{font-weight:800; color:var(--red)}
+  .hamburger{display:none; margin-left:auto; font-size:24px; background:transparent; border:0; padding:6px 8px; border-radius:10px}
+  .hamburger:focus{outline:2px solid #ddd}
+
+  /* Desktop-Menü */
+  .menu{margin-left:auto; display:flex; gap:18px}
+  .menu a{color:var(--dark); text-decoration:none; font-weight:600; padding:8px 10px; border-radius:10px}
   .menu a:hover{background:#f3f3f3}
+
+  /* Mobile Menü */
+  @media (max-width:900px){
+    .hamburger{display:block}
+    .menu{
+      display:none;
+      position:fixed; left:0; right:0; top:56px;
+      background:#fff; border-bottom:1px solid #eee; box-shadow:0 10px 20px rgba(0,0,0,.08);
+      flex-direction:column; gap:6px; padding:12px 16px;
+    }
+    .menu.open{display:flex}
+  }
 
   /* HERO */
   .hero{background:linear-gradient(140deg,#fff 0%,#ffe9e9 40%,#fff 100%);border-bottom:1px solid #f0f0f0}
-  .hero-inner{max-width:var(--max);margin:auto;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;padding:28px 16px 16px}
-  .tag{display:inline-block;font-weight:800;color:#fff;background:var(--red);padding:8px 12px;border-radius:999px;letter-spacing:.3px}
+  .hero-inner{max-width:var(--max);margin:auto;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;padding:28px 16px}
+  .tag{display:inline-block;font-weight:800;color:#fff;background:var(--red);padding:8px 12px;border-radius:999px}
   h1{font-size:clamp(28px,4.2vw,44px);margin:.6rem 0 .2rem;line-height:1.08}
   .sub{color:var(--mid);font-size:1.05rem}
-  .cta-row{display:flex;gap:12px;margin:18px 0 8px;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border-radius:12px;padding:12px 16px;font-weight:800;letter-spacing:.3px;box-shadow:var(--shadow);border:2px solid transparent}
+  .cta-row{display:flex;gap:12px;margin:18px 0;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;text-decoration:none;border-radius:12px;padding:12px 16px;font-weight:800;box-shadow:var(--shadow);border:2px solid transparent}
   .btn.primary{background:var(--red);color:#fff}
-  .btn.primary:hover{filter:brightness(.95)}
   .btn.ghost{background:#fff;border-color:#ddd;color:var(--dark)}
 
-  /* Logos in Hero – größer */
   .logos{display:flex;gap:14px;align-items:center;margin-top:10px}
-  .logos img{height:56px;width:auto}
-  @media (max-width:900px){ .logos img{height:44px} }
+  .logos img{height:56px}
 
-  /* Bild rechts im Hero – sauber skaliert */
   .hero-figure{border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-  .hero-figure img{display:block;width:100%;height:100%;max-height:520px;object-fit:cover}
+  .hero-figure img{width:100%;object-fit:cover}
 
   /* Sections */
   section{padding:48px 16px}
   .wrap{max-width:var(--max);margin:auto}
   .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-  h2{font-size:clamp(22px,3vw,32px);margin:0 0 10px}
   .card{background:#fff;border:1px solid #eee;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-  .card img{max-width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow)}
-  ul.bul,ol.bul{margin:0;padding-left:18px}
-  .highlight{color:var(--red);font-weight:900}
+  .card img{max-width:100%;border-radius:12px}
+  h2{margin-top:0}
 
   /* FORM */
   form{display:grid;gap:12px}
   label{font-weight:700}
-  input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #ddd;font:inherit;background:#fff}
+  input,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid #ddd}
   textarea{min-height:120px;resize:vertical}
 
   /* Footer */
   footer{padding:28px 16px;border-top:1px solid #eee;background:#fff}
-  .foot{max-width:var(--max);margin:auto;display:flex;gap:14px;justify-content:space-between;align-items:center;flex-wrap:wrap;color:#666}
-  .foot img{height:24px;width:auto}
-  .small{font-size:.92rem}
+  .foot{max-width:var(--max);margin:auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;color:#666}
+  .foot img{height:24px}
 
   /* Responsive */
   @media (max-width:900px){
-    .hero-inner{grid-template-columns:1fr;padding-top:18px}
+    .hero-inner{grid-template-columns:1fr}
     .grid-2{grid-template-columns:1fr}
   }
 </style>
@@ -78,10 +86,11 @@
 <body>
 <nav class="nav">
   <div class="nav-inner">
-    <a class="brand" href="#top" aria-label="TIEGELE Start">
+    <a class="brand" href="#top">
       <img src="assets/logo-horizontal.png" alt="TIEGELE Logo" /><span>TIEGELE</span>
     </a>
-    <div class="menu">
+    <button class="hamburger" aria-label="Menü">☰</button>
+    <div id="mainmenu" class="menu">
       <a href="#warum">Warum mitmachen?</a>
       <a href="#ablauf">So läuft’s</a>
       <a href="#anmeldung">Anmeldung</a>
@@ -95,23 +104,15 @@
   <div class="hero-inner">
     <div>
       <span class="tag">Hast du ein besonderes Haustier?</span>
-      <h1>Sei Teil davon – schenk’ Zeit, Freude und <span class="highlight">tierische Momente</span>.</h1>
-      <p class="sub">
-        Ob exotisch, witzig oder einfach nur liebenswert – wir laden dich ein, dein Tier beim
-        Freiwilligentag in der ISD Herberge zu zeigen. Gemeinsam sorgen wir für Abwechslung:
-        mit Tieren, Geschichten und Begegnungen, die Freude schenken.
-      </p>
+      <h1>Sei Teil davon – schenk’ Zeit, Freude und <span style="color:var(--red)">tierische Momente</span>.</h1>
+      <p class="sub">Ob exotisch, witzig oder einfach nur liebenswert – wir laden dich ein, dein Tier beim Freiwilligentag in der ISD Herberge zu zeigen.</p>
       <div class="cta-row">
         <a class="btn primary" href="#anmeldung">Jetzt anmelden</a>
         <a class="btn ghost" href="#warum">Mehr erfahren</a>
       </div>
-      <div class="logos">
-        <img src="assets/logo-innsbruck.jpg" alt="Innsbruck Logo" />
-      </div>
+      <div class="logos"><img src="assets/logo-innsbruck.jpg" alt="Innsbruck Logo" /></div>
     </div>
-    <figure class="hero-figure">
-      <img src="assets/alpaca-senior.jpg" alt="Freiwillige mit Alpaka" />
-    </figure>
+    <figure class="hero-figure"><img src="assets/alpaca-senior.jpg" alt="Freiwillige mit Alpaka" /></figure>
   </div>
 </header>
 
@@ -119,17 +120,9 @@
   <div class="wrap grid-2">
     <div class="card">
       <h2>Warum mitmachen?</h2>
-      <p>Unsere Pflegestation ist ein Zuhause für wohnungslose Frauen und Männer, die Unterstützung brauchen. Viele erhalten selten Besuch – und haben kein Tier, das sie streicheln oder bestaunen können.</p>
-      <p>Dein Besuch bringt <strong>Abwechslung, Nähe und Freude</strong> in den Alltag.</p>
-      <ul class="bul">
-        <li>Kurze, gut betreute Einsätze</li>
-        <li>Wertvolle Momente für Bewohner:innen</li>
-        <li>Du entscheidest, was dein Tier kann &amp; mag</li>
-      </ul>
+      <p>Unsere Pflegestation ist ein Zuhause für wohnungslose Frauen und Männer, die Unterstützung brauchen. Viele erhalten selten Besuch – und haben kein Tier.</p>
     </div>
-    <div class="card">
-      <img src="assets/foto-alpaca-group.png" alt="Besuch mit Tier – Gruppenfoto" />
-    </div>
+    <div class="card"><img src="assets/foto-alpaca-group.png" alt="Besuch mit Tier" /></div>
   </div>
 </section>
 
@@ -137,17 +130,17 @@
   <div class="wrap grid-2">
     <div class="card">
       <h2>So läuft’s</h2>
-      <ol class="bul">
+      <ol>
         <li>Du meldest dich kurz über das Formular an.</li>
-        <li>Wir nehmen Kontakt auf und klären alles Wichtige (Tier, Bedürfnisse, Rahmenbedingungen).</li>
-        <li>Am Tag selbst begleiten wir dich vor Ort – sicher &amp; entspannt für Mensch und Tier.</li>
+        <li>Wir nehmen Kontakt auf und klären alles Wichtige.</li>
+        <li>Am Tag begleiten wir dich vor Ort – sicher & entspannt.</li>
       </ol>
     </div>
     <div class="card">
-      <h2>Wann &amp; Wo</h2>
-      <p><strong>Freiwilligentag:</strong> Samstag, <strong>18.04.2026</strong></p>
-      <p><strong>Uhrzeit:</strong> <strong>14:00 – 16:00</strong> (fix)</p>
-      <p><strong>Ort:</strong> Pflegestation ISD Herberge,<br/>Hunoldstraße 22, 6020 Innsbruck</p>
+      <h2>Wann & Wo</h2>
+      <p><strong>Samstag, 18.04.2026</strong></p>
+      <p><strong>Uhrzeit:</strong> 14:00 – 16:00 (fix)</p>
+      <p><strong>Ort:</strong> Pflegestation ISD Herberge, Hunoldstraße 22, Innsbruck</p>
     </div>
   </div>
 </section>
@@ -157,36 +150,19 @@
     <div class="card">
       <h2>Anmeldung</h2>
       <form id="applyForm">
-        <div>
-          <label for="name">Dein Name*</label>
-          <input id="name" name="name" required placeholder="Max Mustermann" />
-        </div>
-        <div>
-          <label for="email">E-Mail*</label>
-          <input id="email" name="email" type="email" required placeholder="name@example.com" />
-        </div>
-        <div>
-          <label for="phone">Telefon</label>
-          <input id="phone" name="phone" placeholder="+43 ..." />
-        </div>
-        <div>
-          <label for="tier">Dein Tier*</label>
-          <input id="tier" name="tier" required placeholder="Art / Name / Besonderheiten" />
-        </div>
-        <div>
-          <label for="msg">Nachricht</label>
-          <textarea id="msg" name="msg" placeholder="Kurzinfo oder Fragen an uns"></textarea>
-        </div>
+        <label>Name* <input name="name" required></label>
+        <label>E-Mail* <input name="email" type="email" required></label>
+        <label>Telefon <input name="phone"></label>
+        <label>Dein Tier* <input name="tier" required></label>
+        <label>Nachricht <textarea name="msg"></textarea></label>
         <button class="btn primary" type="submit">Per E-Mail anmelden</button>
-        <p class="sub" style="color:#666">Die Schaltfläche öffnet dein E-Mail-Programm mit einer vorgefüllten Nachricht an <strong>tiegeleprojekt@gmail.com</strong>.</p>
       </form>
     </div>
-
     <div class="card">
       <h2>FAQ</h2>
-      <p><strong>Muss mein Tier „ausgebildet“ sein?</strong><br/>Nein. Es reicht, wenn es Menschenkontakt kennt und stressfrei bleibt.</p>
-      <p><strong>Wie lange dauert ein Besuch?</strong><br/>Kurze Slots; wir planen so, dass es für Tier und Menschen entspannt bleibt.</p>
-      <p><strong>Ist das versichert?</strong><br/>Der Besuch ist organisiert und begleitet. Details klären wir im Vorgespräch.</p>
+      <p><strong>Muss mein Tier „ausgebildet“ sein?</strong><br>Nein, es reicht wenn es menschenfreundlich ist.</p>
+      <p><strong>Wie lange dauert ein Besuch?</strong><br>2 Stunden, fix am 18.04.2026.</p>
+      <p><strong>Ist das versichert?</strong><br>Der Besuch ist organisiert und begleitet.</p>
     </div>
   </div>
 </section>
@@ -198,8 +174,8 @@
       <p><strong>E-Mail:</strong> <a href="mailto:tiegeleprojekt@gmail.com">tiegeleprojekt@gmail.com</a></p>
       <p><strong>Ort:</strong> Pflegestation ISD Herberge, Hunoldstraße 22, 6020 Innsbruck</p>
     </div>
-    <div class="card" style="display:flex;align-items:center;justify-content:center">
-      <img src="assets/logo-quad.png" alt="TIEGELE" style="max-width:260px;width:100%;height:auto" />
+    <div class="card" style="text-align:center">
+      <img src="assets/logo-quad.png" alt="TIEGELE Logo" style="max-width:200px">
     </div>
   </div>
 </section>
@@ -208,52 +184,44 @@
   <div class="wrap">
     <div class="card">
       <h2>Impressum & Datenschutz</h2>
-      <p><strong>Betreiber:</strong><br/>
-      Innsbrucker Soziale Dienste GmbH<br/>
-      Herberge<br/>
-      Hunoldstraße 22, 6020 Innsbruck, Österreich</p>
-
-      <p><strong>Kontakt:</strong><br/>
-      E-Mail: <a href="mailto:tiegeleprojekt@gmail.com">tiegeleprojekt@gmail.com</a></p>
-
-      <p><strong>Haftungshinweis:</strong><br/>
-      Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
-
-      <p><strong>Datenschutz:</strong><br/>
-      Deine Daten werden ausschließlich zur Organisation des Freiwilligentags verarbeitet und nicht an Dritte weitergegeben. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung). Verantwortlich ist der oben genannte Betreiber.</p>
+      <p><strong>Betreiber:</strong><br>Innsbrucker Soziale Dienste GmbH<br>Herberge<br>Hunoldstraße 22, 6020 Innsbruck, Österreich</p>
+      <p><strong>Kontakt:</strong><br>E-Mail: tiegeleprojekt@gmail.com</p>
+      <p><strong>Datenschutz:</strong><br>Daten werden nur zur Organisation des Freiwilligentags verarbeitet.</p>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="foot">
-    <div class="small">© <span id="y"></span> TIEGELE – Tiere geben Lebensfreude · Innsbruck</div>
-    <img src="assets/logo-innsbruck.jpg" alt="Innsbruck" />
+    <div>© <span id="y"></span> TIEGELE – Tiere geben Lebensfreude · Innsbruck</div>
+    <img src="assets/logo-innsbruck.jpg" alt="Innsbruck Logo">
   </div>
 </footer>
 
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
-  const MAILTO_ADDRESS = "tiegeleprojekt@gmail.com";
-  document.getElementById('applyForm').addEventListener('submit', function(e){
+  const burger=document.querySelector('.hamburger');
+  const menu=document.getElementById('mainmenu');
+  function closeMenu(){menu.classList.remove('open');}
+  burger.addEventListener('click',()=>{menu.classList.toggle('open');});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+
+  document.getElementById('applyForm').addEventListener('submit',e=>{
     e.preventDefault();
-    const f = new FormData(this);
-    const lines = [
+    const f=new FormData(e.target);
+    const body=[
       "Freiwilligentag – Anmeldung",
       "",
-      "Name: " + (f.get('name')||''),
-      "E-Mail: " + (f.get('email')||''),
-      "Telefon: " + (f.get('phone')||''),
-      "Tier: " + (f.get('tier')||''),
+      "Name: "+f.get('name'),
+      "E-Mail: "+f.get('email'),
+      "Telefon: "+f.get('phone'),
+      "Tier: "+f.get('tier'),
       "",
-      "Nachricht:",
-      (f.get('msg')||''),
+      "Nachricht:",f.get('msg'),
       "",
-      "Termin ist fix: 18.04.2026, 14:00 – 16:00."
+      "Termin: 18.04.2026, 14:00–16:00"
     ].join("\n");
-    const subject = encodeURIComponent("Anmeldung TIEGELE – Freiwilligentag");
-    const body = encodeURIComponent(lines);
-    window.location.href = `mailto:${MAILTO_ADDRESS}?subject=${subject}&body=${body}`;
+    window.location.href=`mailto:tiegeleprojekt@gmail.com?subject=Anmeldung TIEGELE – Freiwilligentag&body=${encodeURIComponent(body)}`;
   });
 </script>
 </body>
